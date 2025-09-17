@@ -1,5 +1,6 @@
 import React from "react";
 
+
 import menuBurger from "../assets/menu_burger.png";
 import { Link } from "react-router-dom";
 import map1 from "../assets/map1.png";
@@ -28,13 +29,13 @@ const Navbar = () => {
               <img src={home1} alt="Logo" className="h-8 w-8" />
               <span>Home</span>
             </Link>
-            <a
-              href="#issue"
+            <Link
+              to="/Issue"
               className="flex items-center space-x-1 hover:text-gray-200"
             >
               <img src={issue1} alt="Logo" className="h-8 w-8" />
               <span> Issue</span>
-            </a>
+            </Link>
             <Link
               to="/Map"
               className="flex items-center space-x-1 hover:text-gray-200"

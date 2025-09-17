@@ -1,58 +1,62 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Leaderboard = () => {
+  const users = [
+    { rank: 1, name: "Alice", points: 120 },
+    { rank: 2, name: "Bob", points: 95 },
+    { rank: 3, name: "Charlie", points: 80 },
+    { rank: 4, name: "David", points: 60 },
+    { rank: 5, name: "Eva", points: 50 },
+  ];
+
   return (
-     <div id='leader' className="min-h-screen bg-gray-50 flex flex-col items-center p-6">
-      {/* Back Button */}
-      <div className="w-full max-w-3xl mb-4">
-        <Link
-        to="/"
-        className="inline-block bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700 transition"
-      >
-        ← Back
-      </Link>
-
-
-      </div>
-
-      {/* Header Section */}
+    <div className="min-h-screen bg-gray-50 flex flex-col items-center p-6">
+      {/* Header */}
       <div className="text-center mb-6">
-        <div className="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
-          <span className="text-purple-600 text-2xl">🛡️</span>
+        <div className="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
+          <span className="text-yellow-600 text-2xl">🏆</span>
         </div>
-        <h1 className="text-2xl font-bold text-gray-800">Become a Steward</h1>
-        <p className="text-gray-600">Help moderate and improve your community</p>
+        <h1 className="text-2xl font-bold text-gray-800">Leaderboard</h1>
+        <p className="text-gray-600">Top contributors in the community</p>
       </div>
 
-      {/* No application found */}
-      <div className="w-full max-w-3xl bg-red-50 border border-red-200 text-red-600 text-sm p-3 rounded-lg mb-5">
-        ⚠️ No application found
+      {/* Leaderboard Table */}
+      <div className="w-full max-w-2xl bg-white shadow rounded-xl overflow-hidden">
+        <table className="w-full text-left border-collapse">
+          <thead className="bg-gray-100 text-gray-700">
+            <tr>
+              <th className="p-3">Rank</th>
+              <th className="p-3">Name</th>
+              <th className="p-3 text-right">Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user) => (
+              <tr
+                key={user.rank}
+                className="border-t hover:bg-gray-50 transition"
+              >
+                <td className="p-3 font-semibold text-gray-800">
+                  {user.rank === 1
+                    ? "🥇"
+                    : user.rank === 2
+                    ? "🥈"
+                    : user.rank === 3
+                    ? "🥉"
+                    : user.rank}
+                </td>
+                <td className="p-3">{user.name}</td>
+                <td className="p-3 text-right font-medium text-blue-600">
+                  {user.points}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-
-      {/* Eligibility Requirements */}
-      <div className="w-full max-w-3xl bg-white shadow rounded-xl p-6 mb-6">
-        <h2 className="text-lg font-semibold text-gray-800 mb-3">
-          Eligibility Requirements
-        </h2>
-        <ul className="space-y-3 text-gray-700">
-          <li className="flex justify-between items-center">
-            <span>⭐ Minimum 100 reputation points</span>
-            <span className="text-red-600">0 points ✖</span>
-          </li>
-          <li className="flex justify-between items-center">
-            <span>📅 Account older than 30 days</span>
-            <span className="text-red-600">N/A ✖</span>
-          </li>
-        </ul>
-        <div className="bg-yellow-50 border border-yellow-200 text-yellow-700 text-sm p-3 rounded-lg mt-4">
-          ⚠️ You don't meet all the requirements yet. Keep participating in the
-          community to increase your reputation!
-        </div>
-      </div>
-
-      {/* How to Increase Reputation */}
-      <div className="w-full max-w-3xl bg-white shadow rounded-xl p-6">
+        {/* How to Increase Reputation */}
+      <div className="w-full max-w-2xl bg-white shadow rounded-xl p-6 mt-8 overflow-hidden">
         <h2 className="text-lg font-semibold text-gray-800 mb-3">
           How to Increase Your Reputation
         </h2>
@@ -81,7 +85,7 @@ const Leaderboard = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Leaderboard
+export default Leaderboard;
