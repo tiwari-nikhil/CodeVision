@@ -3,11 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://tiwari-nikhil.github.io/CodeVision/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "homepage": "https://tiwari-nikhil.github.io/CodeVision/"
+
   },
   "dependencies": {
     "leaflet": "^1.9.4",
